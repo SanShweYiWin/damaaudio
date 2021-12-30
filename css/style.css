@@ -1,3 +1,6 @@
+:root{
+    --otherbg: #46181A;
+}
 *{
     box-sizing: border-box;
 }
@@ -6,8 +9,9 @@ body {
     height: 100vh;
     background-image: url("../img/bg2.jpg");
     background-color: rgba(15, 106, 150, 0.5);
-    background-position: left;
-    background-repeat: repeat-x;
+    background-position: center;
+    /*background-size: contain;*/
+    /*background-repeat: repeat-x;*/
 
     margin: 0;
     overflow: hidden;
@@ -32,7 +36,8 @@ nav .logo{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(15, 106, 150, 0.94);
+    /*background-color: rgba(15, 106, 150, 0.94);*/
+    background: var(--otherbg);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -73,7 +78,7 @@ button, input[type="submit"]{
 }
 
 span{
-    color: rgba(15, 106, 150, 0.94);
+    color: var(--otherbg);
 
     position: absolute;
     top: 0;
@@ -81,8 +86,10 @@ span{
 }
 
 .heading{
-    color: rgba(15, 106, 150, 0.94);
+    color: var(--otherbg);
+    background-color: skyblue;
     text-align: center;
+    padding: 10px 0;
 }
 
 .container{
@@ -92,7 +99,7 @@ span{
 }
 
 .modal-container{
-    background-color: rgba(0,0,0,0.6);
+    background-color: var(--otherbg);
 
     position: fixed;
     top: 0;
@@ -132,7 +139,7 @@ span{
 }
 
 .modal-header{
-    background: rgba(15, 106, 150, 0.94);
+    background: var(--otherbg);
     color: #fff;
     padding: 15px;
 
@@ -228,9 +235,14 @@ span{
 }
 
 .controls{
+    /*background-color: var(--otherbg);*/
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.action-btn{
+    background-color: var(--otherbg);
 }
 
 #prev{
@@ -258,7 +270,7 @@ span{
 
 .music-info{
     width: calc(100% - 40px);
-    background-color: rgba(255,255,255,0.5);
+    background-color: skyblue;
     border-radius: 15px 15px 0 0;
 
     position: absolute;
@@ -281,7 +293,7 @@ span{
 
 .music-info h4{
     margin-top: 5px;
-    color: rgba(15, 106, 150, 1);
+    color: var(--otherbg);
 }
 
 @media screen and (max-height: 450px) {
