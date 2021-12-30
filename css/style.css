@@ -1,0 +1,291 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url("../img/bg2.jpg");
+    background-color: rgba(15, 106, 150, 0.5);
+    background-position: left;
+    background-repeat: repeat-x;
+
+    margin: 0;
+    overflow: hidden;
+}
+
+nav .logo img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+nav .logo{
+    padding: 30px 0;
+    text-align: center;
+
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(15, 106, 150, 0.94);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+button, input[type="submit"]{
+    background: rgba(15, 106, 150, 0.94);
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+span{
+    color: rgba(15, 106, 150, 0.94);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.heading{
+    color: rgba(15, 106, 150, 0.94);
+    text-align: center;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.modal-container{
+    background-color: rgba(0,0,0,0.6);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: none;
+
+    z-index: 100;
+}
+
+.modal-container.showmodal{
+    display: block;
+}
+.modal{
+    width: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 3px 10px rgba(0,0,0,0.3);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.close-btn{
+    background: transparent;
+    font-size: 25px;
+    border: 0;
+
+    position: absolute;
+    top: 0;
+    left:95%;
+}
+
+.modal-header{
+    background: rgba(15, 106, 150, 0.94);
+    color: #fff;
+    padding: 15px;
+
+}
+
+.modal-content{
+    padding: 20px;
+}
+
+.modal-form .form-group{
+    margin: 15px 0;
+}
+
+.modal-form label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-form .form-input{
+    width: 100%;
+    padding: 8px;
+}
+
+.music-container{
+    width: 500px;
+    height: 20px;
+    background-color: rgba(15, 106, 150, 0.2);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px rgba(0,0,0,0.5);
+    margin: 100px 0;
+
+    display: flex;
+
+    position: fixed;
+    top: 10%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.img-container{
+    width: 110px;
+
+    position: relative;
+
+    z-index: 0;
+}
+
+.img-container img{
+    width: inherit;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    animation-name: myani;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    animation-play-state: paused;
+}
+
+.music-container.play .img-container img{
+    animation-play-state: running;
+}
+
+.img-container::after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+
+    position: absolute;
+    top: -60px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+@keyframes myani {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prev{
+    color: gray;
+    font-size: 10px;
+    position: absolute;
+    left: 40%;
+}
+
+#next{
+    color: gray;
+    font-size: 10px;
+    position: absolute;
+    left: 60%;
+}
+
+.action-btn.action-btn-big{
+    color: gray;
+    font-size: 15px;
+}
+
+.action-btn:focus{
+    outline: 0;
+}
+
+.music-info{
+    width: calc(100% - 40px);
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 15px 15px 0 0;
+
+    position: absolute;
+    top: 0;
+    left: 20px;
+
+    padding: 1px 1px 10px 150px;
+
+    transform: translateY(0%);
+
+    opacity: 0;
+
+    z-index: -1;
+}
+
+.music-container.play .music-info{
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.music-info h4{
+    margin-top: 5px;
+    color: rgba(15, 106, 150, 1);
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
